@@ -35,7 +35,7 @@ CREATE TABLE sensor(
 );
 
 CREATE TABLE dado_captado(
-	id_dado_captado INT, 
+	id_dado_captado INT PRIMARY KEY AUTO_INCREMENT, 
 	fk_sensor INT,
 	data_hora DATETIME,
 	fluxo TINYINT, 
