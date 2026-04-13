@@ -1,3 +1,5 @@
+CREATE DATABASE BDPi;
+USE BDPi;
 
 CREATE TABLE empresa_parceira(
 	id_empresa INT PRIMARY KEY AUTO_INCREMENT, 
@@ -23,7 +25,7 @@ CREATE TABLE ponto_monitoramento (
 	id_ponto_monitoramento INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(45),
 	fk_empresa INT,
-	CONSTRAINT ctFKempresaParceira FOREIGN KEY(fk_empresa) REFERENCES empresa_parceira(id_empresa)
+	CONSTRAINT ctFkEmpresa FOREIGN KEY(fk_empresa) REFERENCES empresa_parceira(id_empresa)
 );
 
 CREATE TABLE sensor(
@@ -92,4 +94,23 @@ select
 from sensor as s
 join ponto_monitoramento as p on s.fk_ponto = id_ponto_monitoramento
 join empresa_parceira as e on e.id_empresa = fk_empresa;
+
+SELECT 
+	s.nome,
+    s.id_sensor
+FROM sensor AS s
+JOIN dado_captado AS dc 
+ON dc.fk_sensor = id_sensor;
+
+ALTER TABLE sensor ADD COLUMN nome VARCHAR(45);
+
+UPDATE sensor SET nome = 'Caixa1' WHERE id_sensor = 1;
+UPDATE sensor SET nome = 'Caixa2' WHERE id_sensor = 2;
+UPDATE sensor SET nome = 'Corredor Doces' WHERE id_sensor = 3;
+UPDATE sensor SET nome = 'Corredor Limpeza' WHERE id_sensor = 4;
+UPDATE sensor SET nome = 'Frios' WHERE id_sensor = 5;
+
+
+
+
 
