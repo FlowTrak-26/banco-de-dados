@@ -1,2 +1,2 @@
 # banco-de-dados
-Banco de dados da FlowTrak
+Scripts do banco de dados da FlowTrak
