@@ -97,10 +97,9 @@ JOIN empresa_parceira AS e ON e.id_empresa = fk_empresa;
 
 SELECT 
 	s.nome,
-    s.id_sensor
+  s.id_sensor
 FROM sensor AS s
-JOIN dado_captado AS dc 
-ON dc.fk_sensor = id_sensor;
+	JOIN dado_captado AS dc ON dc.fk_sensor = id_sensor;
 
 ALTER TABLE sensor ADD COLUMN nome VARCHAR(45);
 
@@ -114,12 +113,15 @@ UPDATE sensor SET nome = 'Saída' WHERE id_sensor = 4;
 
 
 SELECT 
-	s.id_sensor, pm.nome, dc.fluxo, dc.data_hora
-	FROM ponto_monitoramento AS pm 
+	s.id_sensor,
+	pm.nome,
+	dc.fluxo,
+	dc.data_hora
+FROM ponto_monitoramento AS pm 
 	JOIN sensor AS s ON fk_ponto = id_ponto_monitoramento
-    JOIN dado_captado AS dc ON fk_sensor = id_sensor
-    WHERE dc.data_hora BETWEEN '2023-10-27 08:00:00' AND '2023-10-27 09:30:00'
-    ;
+  JOIN dado_captado AS dc ON fk_sensor = id_sensor
+WHERE dc.data_hora 
+	BETWEEN '2023-10-27 08:00:00' AND '2023-10-27 09:30:00';
 
 
 
