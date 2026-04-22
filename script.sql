@@ -87,13 +87,13 @@ SELECT * FROM dado_captado;
 SELECT * FROM empresa_parceira;
 SELECT * FROM franquia;
 
-select 
+SELECT
 	s.status, 
     p.nome, 
     e.nome 
-from sensor as s
-join ponto_monitoramento as p on s.fk_ponto = id_ponto_monitoramento
-join empresa_parceira as e on e.id_empresa = fk_empresa;
+FROM sensor AS s
+JOIN ponto_monitoramento AS p ON s.fk_ponto = id_ponto_monitoramento
+JOIN empresa_parceira AS e ON e.id_empresa = fk_empresa;
 
 SELECT 
 	s.nome,
@@ -113,6 +113,13 @@ UPDATE sensor SET nome = 'Entrada' WHERE id_sensor = 3;
 UPDATE sensor SET nome = 'Saída' WHERE id_sensor = 4;
 
 
+SELECT 
+	s.id_sensor, pm.nome, dc.fluxo, dc.data_hora
+	FROM ponto_monitoramento AS pm 
+	JOIN sensor AS s ON fk_ponto = id_ponto_monitoramento
+    JOIN dado_captado AS dc ON fk_sensor = id_sensor
+    WHERE dc.data_hora BETWEEN '2023-10-27 08:00:00' AND '2023-10-27 09:30:00'
+    ;
 
 
 
