@@ -1,5 +1,5 @@
-CREATE DATABASE BDPi;
-USE BDPi;
+CREATE DATABASE flowtrak;
+USE flowtrak;
 
 CREATE TABLE empresa_parceira(
 	id_empresa INT PRIMARY KEY AUTO_INCREMENT, 
