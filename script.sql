@@ -39,7 +39,7 @@ CREATE TABLE sensor(
 CREATE TABLE dado_captado(
 	id_dado_captado INT PRIMARY KEY AUTO_INCREMENT, 
 	fk_sensor INT,
-	data_hora DATETIME,
+	data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
 	fluxo TINYINT, 
 	CONSTRAINT ctFkDadoSensor FOREIGN KEY(fk_sensor) REFERENCES sensor(id_sensor)
 );
