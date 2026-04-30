@@ -76,7 +76,7 @@ INSERT INTO sensor (fk_ponto, status) VALUES
 INSERT INTO dado_captado (data_hora, fluxo, fk_sensor) VALUES 
 ('2023-10-27 08:00:00', 1, 1),
 ('2023-10-27 08:05:00', 1, 1),
-('2023-10-27 08:10:00', 0, 2),
+('2023-10-27 08:10:00', 1, 2),
 ('2023-10-27 09:00:00', 1, 3),
 ('2023-10-27 09:30:00', 1, 5);
 
