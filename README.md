@@ -74,3 +74,11 @@ O banco é estruturado para registrar e organizar:
 | Karina Cupola Alves | 
 | Victor de Oliveira Souza |
 | Vitor da Luz Santos | 
+
+## Instituição
+
+**SPTech School — São Paulo Tech School**
+Curso: Ciência da Computação
+Disciplina: Pesquisa e Inovação
+Orientadores: Fernando Brandão e Julia Araripe
+Ano: 2026
