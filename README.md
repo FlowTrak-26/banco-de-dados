@@ -50,3 +50,7 @@ Os sensores instalados em pontos estratégicos do supermercado enviam dados via 
 ```terminal
 git clone https://github.com/FlowTrak-26/banco-de-dados.git
 ```
+
+### Visualizando a Modelagem
+
+Dentro do arquivo `modelagem-banco.mwb` você consegue visualizar o diagrama com a modelagem do nosso sistema.
