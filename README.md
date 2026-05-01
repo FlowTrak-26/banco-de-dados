@@ -43,3 +43,10 @@ Os sensores instalados em pontos estratégicos do supermercado enviam dados via 
 
 - MySQL Server instalado (local ou em nuvem)
 - MySQL Workbench (para visualizar o nosso diagrama)
+
+### Importando o banco de dados
+
+1. Para clonar o repositório:
+```terminal
+git clone https://github.com/FlowTrak-26/banco-de-dados.git
+```
