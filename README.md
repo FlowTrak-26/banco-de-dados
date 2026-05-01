@@ -33,4 +33,6 @@ banco-de-dados/
 | **MySQL** | Sistema gerenciador de banco de dados |
 | **MySQL Workbench** | Utilizado para criação do diagrama|
 
+## Contexto na Arquitetura FlowTrak
 
+Os sensores instalados em pontos estratégicos do supermercado enviam dados via API para o banco, que os armazena de forma estruturada. A aplicação web consome essas informações para gerar gráficos, indicadores e alertas em tempo real.
