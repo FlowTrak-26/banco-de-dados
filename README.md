@@ -82,3 +82,7 @@ Curso: Ciência da Computação
 Disciplina: Pesquisa e Inovação
 Orientadores: Fernando Brandão e Julia Araripe
 Ano: 2026
+
+## Repositórios Relacionados
+
+- [Site Institucional](https://github.com/FlowTrak-26/site-institucional) — Frontend, dashboard e simulador financeiro
