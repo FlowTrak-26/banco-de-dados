@@ -63,3 +63,14 @@ O banco é estruturado para registrar e organizar:
 - **Os pontos de monitoramento** (entradas, corredores, caixas)
 - **O Horário dos registros** para análise de picos e padrões temporais
 - **Dados de usuários** (para o site via cadastro/login)
+
+## Equipe — Grupo 03
+
+| Nome | 
+|---|
+| Caio Picciarelli Silva |
+| Emanuelly Cristini Alves de Melo | 
+| Isaac Azevedo Pinheiro | 
+| Karina Cupola Alves | 
+| Victor de Oliveira Souza |
+| Vitor da Luz Santos | 
