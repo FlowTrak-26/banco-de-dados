@@ -26,3 +26,11 @@ banco-de-dados/
 └── README.md
 ```
 
+## Tecnologias Utilizadas
+
+| Tecnologia | Finalidade |
+|---|---|
+| **MySQL** | Sistema gerenciador de banco de dados |
+| **MySQL Workbench** | Utilizado para criação do diagrama|
+
+
