@@ -54,3 +54,12 @@ git clone https://github.com/FlowTrak-26/banco-de-dados.git
 ### Visualizando a Modelagem
 
 Dentro do arquivo `modelagem-banco.mwb` você consegue visualizar o diagrama com a modelagem do nosso sistema.
+
+## Dados Armazenados
+
+O banco é estruturado para registrar e organizar:
+
+- **Fluxo de entrada e saída** de clientes (por setor e horário)
+- **Os pontos de monitoramento** (entradas, corredores, caixas)
+- **O Horário dos registros** para análise de picos e padrões temporais
+- **Dados de usuários** (para o site via cadastro/login)
