@@ -16,13 +16,13 @@ CREATE TABLE usuario(
 	email VARCHAR(45),
 	senha VARCHAR(45),
 	nivel_acesso VARCHAR(45),
-	fk_empresa_parceira INT,
-	CONSTRAINT ctFkEmpresaParceira FOREIGN KEY(fk_empresa_parceira) REFERENCES empresa_parceira(id_empresa),
+	fk_empresa INT,
+	CONSTRAINT ctFkEmpresaParceira FOREIGN KEY(fk_empresa) REFERENCES empresa_parceira(id_empresa),
 	CONSTRAINT ctNivelAcesso CHECK (nivel_acesso IN ('ADMIN','OPERADOR'))
 );
 
 CREATE TABLE ponto_monitoramento (
-	id_ponto_monitoramento INT PRIMARY KEY AUTO_INCREMENT,
+	id_ponto INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(45),
 	fk_empresa INT,
 	CONSTRAINT ctFkEmpresa FOREIGN KEY(fk_empresa) REFERENCES empresa_parceira(id_empresa)
@@ -32,12 +32,14 @@ CREATE TABLE sensor(
 	id_sensor INT PRIMARY KEY AUTO_INCREMENT,
 	fk_ponto INT,
 	status VARCHAR(45),
-	CONSTRAINT ctFkPontoMonitoramento FOREIGN KEY (fk_ponto) REFERENCES ponto_monitoramento(id_ponto_monitoramento),
+	CONSTRAINT ctFkPontoMonitoramento FOREIGN KEY (fk_ponto) REFERENCES ponto_monitoramento(id_ponto),
 	CONSTRAINT ctStatus CHECK (status IN ('ATIVO','DESATIVADO'))
 );
 
+
+
 CREATE TABLE dado_captado(
-	id_dado_captado INT PRIMARY KEY AUTO_INCREMENT, 
+	id_dado INT PRIMARY KEY AUTO_INCREMENT, 
 	fk_sensor INT,
 	data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
 	fluxo TINYINT, 
@@ -51,7 +53,7 @@ INSERT INTO empresa_parceira (nome, cnpj, endereco_sede, franqueadora) VALUES
 ('Assaí Atacadista', '06057223000171', 'Av. Aricanduva, 5555', NULL),
 ('Muffato', '01648512000108', 'Rod. Celso Garcia Cid, 1100', NULL);
 
-INSERT INTO usuario (nome, email, senha, fk_empresa_parceira, nivel_acesso) VALUES 
+INSERT INTO usuario (nome, email, senha, fk_empresa, nivel_acesso) VALUES 
 ('Vitor', 'vitor@carrefour.com', '123', 1, 'ADMIN'),
 ('Victor', 'victor@carrefour.com', '123', 1, 'OPERADOR'),
 ('Isaac', 'isaac@extra.com', '123', 2, 'ADMIN'),
@@ -92,7 +94,7 @@ SELECT
     p.nome, 
     e.nome 
 FROM sensor AS s
-JOIN ponto_monitoramento AS p ON s.fk_ponto = id_ponto_monitoramento
+JOIN ponto_monitoramento AS p ON s.fk_ponto = id_ponto
 JOIN empresa_parceira AS e ON e.id_empresa = fk_empresa;
 
 SELECT 
@@ -118,7 +120,7 @@ SELECT
 	dc.fluxo,
 	dc.data_hora
 FROM ponto_monitoramento AS pm 
-	JOIN sensor AS s ON fk_ponto = id_ponto_monitoramento
+	JOIN sensor AS s ON fk_ponto = id_ponto
   JOIN dado_captado AS dc ON fk_sensor = id_sensor
 WHERE dc.data_hora 
 	BETWEEN '2023-10-27 08:00:00' AND '2023-10-27 09:30:00';
