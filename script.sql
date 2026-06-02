@@ -51,7 +51,13 @@ INSERT INTO empresa_parceira (nome, cnpj, endereco_sede, franqueadora) VALUES
 ('Extra', '06402330000129', 'Av. Brigadeiro Luís Antônio, 3172', NULL),
 ('Supermercados BH', '04641376000136', 'Rod. MG-010, KM 18', NULL),
 ('Assaí Atacadista', '06057223000171', 'Av. Aricanduva, 5555', NULL),
-('Muffato', '01648512000108', 'Rod. Celso Garcia Cid, 1100', NULL);
+('Muffato', '01648512000108', 'Rod. Celso Garcia Cid, 1100', NULL),
+('Carrefour Unidas', '8679478056748', 'Av. Unidas, 1787', 1),
+('Extra Nações', '4580236007829', 'Av. Nações, 472', 2),
+('Supermercados BH Amaral', '67805356354869', 'Av. Franklin do Amaral, 125', 3),
+('Assaí Atacadista Francisco Pinheiro', '38463791837465', 'Rua Professor Francisco Pinheiro, 299', 4),
+('Muffato Santo André', '1856k038974569', 'Rua Canárias, 45', 5);
+
 
 INSERT INTO usuario (nome, email, senha, fk_empresa, nivel_acesso) VALUES 
 ('Vitor', 'vitor@carrefour.com', '123', 1, 'ADMIN'),
@@ -87,7 +93,6 @@ SELECT * FROM ponto_monitoramento;
 SELECT * FROM usuario;
 SELECT * FROM dado_captado;
 SELECT * FROM empresa_parceira;
-SELECT * FROM franquia;
 
 SELECT
 	s.status, 
@@ -124,9 +129,27 @@ FROM ponto_monitoramento AS pm
   JOIN dado_captado AS dc ON fk_sensor = id_sensor
 WHERE dc.data_hora 
 	BETWEEN '2023-10-27 08:00:00' AND '2023-10-27 09:30:00';
-
-
-
-
-
-
+    
+SELECT 
+	emp.id_empresa AS id_empresa,
+            emp.franqueadora AS id_franquiadora,
+            pt.id_ponto AS id_ponto,
+            pt.nome AS nome_ponto,
+            pt.fk_empresa,
+            sn.id_sensor,
+            sn.status AS status_sensor,
+            sn.fk_ponto,
+            d_cpt.id_dado AS id_dado_cpt,
+            d_cpt.data_hora AS momento_grafico,
+            d_cpt.fluxo,
+            d_cpt.fk_sensor
+        FROM empresa_parceira AS emp
+           LEFT JOIN empresa_parceira AS franq
+                ON emp.franqueadora = franq.id_empresa
+          LEFT  JOIN ponto_monitoramento AS pt
+                ON pt.fk_empresa = emp.id_empresa
+         LEFT   JOIN sensor AS sn
+                ON sn.fk_ponto = pt.id_ponto
+         LEFT   JOIN dado_captado AS d_cpt
+                ON d_cpt.fk_sensor = sn.id_sensor;
+	
